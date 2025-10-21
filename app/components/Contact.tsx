@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -12,11 +12,52 @@ export default function Contact() {
     message: '',
   });
 
+  // 必須項目がすべて入力されているかチェック
+  const isFormValid = useMemo(() => {
+    return (
+      formData.name.trim() !== '' &&
+      formData.company.trim() !== '' &&
+      formData.email.trim() !== '' &&
+      formData.message.trim() !== ''
+    );
+  }, [formData]);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // フォーム送信処理（ダミー）
+    if (!isFormValid) return;
+
+    // TODO: AWS SES経由でinfoに送信
     console.log('Form submitted:', formData);
     alert('お問い合わせを受け付けました。担当者より折り返しご連絡いたします。');
+
+    // フォームをリセット
+    setFormData({
+      name: '',
+      company: '',
+      email: '',
+      phone: '',
+      service: '',
+      message: '',
+    });
+  };
+
+  const handleDownload = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (!isFormValid) return;
+
+    // TODO: AWS SES経由でinfoにダウンロード通知を送信
+    console.log('Download requested:', formData);
+
+    // ダミーPDFダウンロード（将来的に実際のPDFに置き換え）
+    alert(
+      `${formData.name}様\n\n企業資料のダウンロードを開始します。\n\nご入力いただいた情報を記録させていただきました。`
+    );
+
+    // 実際のダウンロード処理（将来実装）
+    // const link = document.createElement('a');
+    // link.href = '/documents/company-profile.pdf';
+    // link.download = 'Kurosawa_Consulting_Vietnam_Company_Profile.pdf';
+    // link.click();
   };
 
   const handleChange = (
@@ -29,67 +70,104 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-white relative overflow-hidden">
+    <section
+      id="contact"
+      className="py-16 sm:py-20 md:py-24 lg:py-32 bg-white relative overflow-hidden"
+    >
       {/* 背景：Hero準拠の柔らかいグリーンブロブ */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute top-[-200px] right-[-200px] w-[800px] h-[800px] bg-gradient-to-bl from-[#A5D6A7]/30 via-[#C8E6C9]/20 to-transparent rounded-full blur-3xl"></div>
         <div className="absolute bottom-[-250px] left-[-200px] w-[700px] h-[700px] bg-gradient-to-tr from-[#81C784]/25 via-[#A5D6A7]/15 to-transparent rounded-full blur-3xl"></div>
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
         {/* セクションヘッダー */}
-        <div className="text-center mb-16">
-          <p className="text-sm text-[#C8102E] tracking-[0.3em] uppercase font-light mb-2">
+        <div className="text-center mb-12 sm:mb-14 md:mb-16">
+          <p className="text-xs sm:text-sm md:text-base text-[#C8102E] tracking-[0.25em] sm:tracking-[0.3em] uppercase font-light mb-2 sm:mb-3">
             Contact
           </p>
-          <h2 className="text-xl md:text-2xl font-light text-gray-600 tracking-wide">
+          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-gray-600 tracking-wide">
             お問い合わせ
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
           {/* 連絡先情報 */}
-          <div className="md:col-span-1 space-y-8">
+          <div className="md:col-span-1 space-y-6 sm:space-y-7 md:space-y-8">
             <div>
-              <h3 className="text-sm tracking-[0.25em] uppercase text-[#2C5F2D] mb-2">Ho Chi Minh Office</h3>
-              <p className="text-sm text-[#5A5A5A] leading-relaxed">
-                Floor 1B, 116-118, Nguyen Thi Minh Khai Street, Vo Thi Sau Ward, District 3, Ho Chi Minh City
+              <h3 className="text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.25em] uppercase text-[#2C5F2D] mb-2">
+                Ho Chi Minh Office
+              </h3>
+              <p className="text-xs sm:text-sm text-[#5A5A5A] leading-relaxed">
+                Floor 1B, 116-118, Nguyen Thi Minh Khai Street, Vo Thi Sau Ward, District 3, Ho Chi
+                Minh City
               </p>
-              <a href="tel:+842835200043" className="text-sm text-[#2E2E2E] hover:opacity-80 block mt-1">
+              <a
+                href="tel:+842835200043"
+                className="text-xs sm:text-sm text-[#2E2E2E] hover:opacity-80 block mt-1"
+              >
                 028-3520-0043（Ext 30）
               </a>
             </div>
 
             <div>
-              <h3 className="text-sm tracking-[0.25em] uppercase text-[#2C5F2D] mb-2">Hanoi Office</h3>
-              <p className="text-sm text-[#5A5A5A] leading-relaxed">
-                22F, Ngoc Khanh Plaza Building, No.1 Pham Huy Thong Street, Ngoc Khanh Ward, Ba Dinh District, Hanoi
+              <h3 className="text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.25em] uppercase text-[#2C5F2D] mb-2">
+                Hanoi Office
+              </h3>
+              <p className="text-xs sm:text-sm text-[#5A5A5A] leading-relaxed">
+                22F, Ngoc Khanh Plaza Building, No.1 Pham Huy Thong Street, Ngoc Khanh Ward, Ba Dinh
+                District, Hanoi
               </p>
-              <a href="tel:+84902852032" className="text-sm text-[#2E2E2E] hover:opacity-80 block mt-1">
+              <a
+                href="tel:+84902852032"
+                className="text-xs sm:text-sm text-[#2E2E2E] hover:opacity-80 block mt-1"
+              >
                 090-2852-032
               </a>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-5 md:space-y-6">
               <div>
-                <h3 className="text-sm tracking-[0.25em] uppercase text-[#2C5F2D] mb-2">Email</h3>
+                <h3 className="text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.25em] uppercase text-[#2C5F2D] mb-2">
+                  Email
+                </h3>
                 <a
                   href="mailto:KCV_JBS_HCM@kurosawa.vn"
-                  className="text-sm text-[#2E2E2E] hover:opacity-80 block"
+                  className="text-xs sm:text-sm text-[#2E2E2E] hover:opacity-80 block"
                 >
                   KCV_JBS_HCM@kurosawa.vn
                 </a>
               </div>
               <div>
-                <h3 className="text-sm tracking-[0.25em] uppercase text-[#2C5F2D] mb-2">Website</h3>
+                <h3 className="text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.25em] uppercase text-[#2C5F2D] mb-2">
+                  Website
+                </h3>
                 <div className="flex flex-col gap-2">
-                  <a href="https://www.kurosawa.gr.jp/" target="_blank" rel="noopener noreferrer" className="text-sm text-[#2C5F2D] hover:underline break-all">https://www.kurosawa.gr.jp/</a>
-                  <a href="http://kurosawa-vn.com/" target="_blank" rel="noopener noreferrer" className="text-sm text-[#2C5F2D] hover:underline break-all">http://kurosawa-vn.com/</a>
+                  <a
+                    href="https://www.kurosawa.gr.jp/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs sm:text-sm text-[#2C5F2D] hover:underline break-all"
+                  >
+                    https://www.kurosawa.gr.jp/
+                  </a>
+                  <a
+                    href="http://kurosawa-vn.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs sm:text-sm text-[#2C5F2D] hover:underline break-all"
+                  >
+                    http://kurosawa-vn.com/
+                  </a>
                 </div>
               </div>
               <div>
-                <h3 className="text-sm tracking-[0.25em] uppercase text-[#2C5F2D] mb-2">Facebook</h3>
-                <p className="text-sm text-[#5A5A5A]">Kurosawa Consulting Vietnam（クロサワコンサルティングベトナム）</p>
+                <h3 className="text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.25em] uppercase text-[#2C5F2D] mb-2">
+                  Facebook
+                </h3>
+                <p className="text-xs sm:text-sm text-[#5A5A5A]">
+                  Kurosawa Consulting Vietnam（クロサワコンサルティングベトナム）
+                </p>
               </div>
             </div>
           </div>
@@ -98,11 +176,14 @@ export default function Contact() {
           <div className="md:col-span-2">
             <form
               onSubmit={handleSubmit}
-              className="bg-white/70 backdrop-blur-sm p-10 border border-gray-200 space-y-6"
+              className="bg-white/70 backdrop-blur-sm p-6 sm:p-8 md:p-10 border border-gray-200 space-y-5 sm:space-y-6"
             >
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2"
+                  >
                     お名前 <span className="text-[#C8102E]">*</span>
                   </label>
                   <input
@@ -118,7 +199,10 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="company"
+                    className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2"
+                  >
                     会社名 <span className="text-[#C8102E]">*</span>
                   </label>
                   <input
@@ -134,9 +218,12 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2"
+                  >
                     メールアドレス <span className="text-[#C8102E]">*</span>
                   </label>
                   <input
@@ -152,7 +239,10 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="phone"
+                    className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2"
+                  >
                     電話番号
                   </label>
                   <input
@@ -168,7 +258,10 @@ export default function Contact() {
               </div>
 
               <div>
-                <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="service"
+                  className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2"
+                >
                   ご希望のサービス
                 </label>
                 <select
@@ -190,7 +283,10 @@ export default function Contact() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-xs sm:text-sm font-medium text-gray-700 mb-1.5 sm:mb-2"
+                >
                   お問い合わせ内容 <span className="text-[#C8102E]">*</span>
                 </label>
                 <textarea
@@ -205,18 +301,53 @@ export default function Contact() {
                 />
               </div>
 
-              <div className="pt-2">
+              <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                {/* 送信ボタン */}
                 <button
                   type="submit"
-                  className="w-full h-12 bg-[#2E2E2E] text-white text-sm tracking-widest hover:bg-black transition-colors"
+                  disabled={!isFormValid}
+                  className={`h-10 sm:h-11 md:h-12 text-white text-xs sm:text-sm tracking-[0.2em] sm:tracking-widest transition-all duration-300 ${
+                    isFormValid
+                      ? 'bg-[#2E2E2E] hover:bg-black cursor-pointer'
+                      : 'bg-gray-300 cursor-not-allowed opacity-60'
+                  }`}
                 >
                   送信する
                 </button>
+
+                {/* 企業資料ダウンロードボタン */}
+                <button
+                  type="button"
+                  onClick={handleDownload}
+                  disabled={!isFormValid}
+                  className={`h-10 sm:h-11 md:h-12 text-xs sm:text-sm tracking-[0.2em] sm:tracking-widest transition-all duration-300 flex items-center justify-center gap-2 ${
+                    isFormValid
+                      ? 'border-2 border-[#2C5F2D] text-[#2C5F2D] hover:bg-[#2C5F2D] hover:text-white cursor-pointer'
+                      : 'border-2 border-gray-300 text-gray-400 cursor-not-allowed opacity-60'
+                  }`}
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    />
+                  </svg>
+                  企業資料ダウンロード
+                </button>
               </div>
 
-              <p className="text-xs text-gray-500 text-center">
-                ご入力いただいた情報は、お問い合わせへの対応のみに使用いたします
+              <p className="text-[10px] sm:text-xs text-gray-500 text-center">
+                ご入力いただいた情報は、お問い合わせへの対応および資料提供の目的のみに使用いたします
               </p>
+
+              {!isFormValid && (
+                <p className="text-[10px] sm:text-xs text-[#C8102E] text-center">
+                  ※
+                  必須項目（お名前・会社名・メールアドレス・お問い合わせ内容）をすべて入力してください
+                </p>
+              )}
             </form>
           </div>
         </div>

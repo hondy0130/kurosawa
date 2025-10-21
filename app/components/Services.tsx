@@ -53,50 +53,55 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="pt-20 pb-20 bg-white">
+    <section id="services" className="py-16 sm:py-20 md:py-24 lg:py-32 bg-white">
       {/* セクションヘッダー - 上品で控えめ */}
-      <div className="text-center mb-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-sm text-[#C8102E] tracking-[0.3em] uppercase font-light mb-2">
+      <div className="text-center mb-12 sm:mb-16 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <p className="text-xs sm:text-sm md:text-base text-[#C8102E] tracking-[0.25em] sm:tracking-[0.3em] uppercase font-light mb-2 sm:mb-3">
           Services
         </p>
-        <h2 className="text-xl md:text-2xl font-light text-gray-600 tracking-wide">サービス紹介</h2>
+        <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-gray-600 tracking-wide">
+          サービス紹介
+        </h2>
       </div>
 
       {/* Alternating media sections: Text/Image → Image/Text → Text/Image */}
-      <div className="px-4 sm:px-6 lg:px-8">
+      <div className="px-6 sm:px-8 lg:px-12">
         <div className="space-y-0 max-w-none">
           {services.slice(0, 3).map((service, index) => {
             const isEven = index % 2 === 0; // 0,2: Text Left / Media Right
             return (
-              <section key={index} className="grid md:grid-cols-2 gap-8 items-center">
+              <section key={index} className="grid md:grid-cols-2 gap-6 md:gap-8 items-center">
                 {/* Text block */}
                 <div
-                  className={`${isEven ? 'order-2 md:order-1' : 'order-2 md:order-2'} h-[320px] md:h-[520px] flex`}
+                  className={`${isEven ? 'order-2 md:order-1' : 'order-2 md:order-2'} h-[320px] md:h-[450px] lg:h-[520px] flex`}
                 >
-                  <div className="space-y-4 md:space-y-6 my-auto">
-                    <p className="text-[11px] tracking-[0.35em] uppercase text-black/60">
+                  <div className="space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6 my-auto">
+                    <p className="text-[10px] sm:text-[11px] md:text-xs tracking-[0.3em] sm:tracking-[0.35em] uppercase text-black/60">
                       {service.subtitle}
                     </p>
-                    <h3 className="text-3xl md:text-4xl font-light text-black leading-tight">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-black leading-tight">
                       {service.titleLines?.map((line: string, i: number) => (
                         <span key={i} className="block">
                           {line}
                         </span>
                       )) || service.title}
                     </h3>
-                    <p className="text-sm md:text-base text-black/70 leading-relaxed max-w-prose">
+                    <p className="text-xs sm:text-sm md:text-base lg:text-lg text-black/70 leading-relaxed max-w-prose">
                       {service.description}
                     </p>
                     <a
                       href={`/services/${index + 1}`}
-                      className="inline-flex items-center justify-center bg-[#2B2C30] text-white px-10 py-3 text-sm tracking-wide transition-colors hover:bg-black select-none"
+                      className="inline-flex items-center justify-center bg-[#2B2C30] text-white px-8 sm:px-10 py-2.5 sm:py-3 text-xs sm:text-sm tracking-wide transition-colors hover:bg-black select-none"
                     >
                       View more
                     </a>
                     {Array.isArray(service.notes) && service.notes.length > 0 && (
-                      <div className="pt-3 space-y-1">
+                      <div className="pt-2 sm:pt-3 space-y-1">
                         {service.notes.map((n, i) => (
-                          <p key={i} className="text-[10px] text-black/50 leading-relaxed">
+                          <p
+                            key={i}
+                            className="text-[9px] sm:text-[10px] md:text-xs text-black/50 leading-relaxed"
+                          >
                             {n}
                           </p>
                         ))}
@@ -137,10 +142,10 @@ export default function Services() {
               </section>
             );
           })}
-          <div className="mt-16 flex justify-center">
+          <div className="mt-12 sm:mt-16 flex justify-center">
             <a
               href="/services"
-              className="inline-block px-12 py-4 bg-[#2C5F2D] text-white text-sm font-light tracking-widest hover:bg-[#1E4620] transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="inline-block px-8 sm:px-10 md:px-12 py-3 sm:py-3.5 md:py-4 bg-[#2C5F2D] text-white text-xs sm:text-sm md:text-base font-light tracking-[0.2em] sm:tracking-widest hover:bg-[#1E4620] transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               サービス一覧を表示
             </a>

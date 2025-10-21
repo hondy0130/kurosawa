@@ -34,14 +34,17 @@ export default function Achievement() {
   ];
 
   return (
-    <section id="achievement" className="pt-20 pb-32 bg-[#F8F8F8] overflow-hidden">
+    <section
+      id="achievement"
+      className="py-16 sm:py-20 md:py-24 lg:py-32 bg-[#F8F8F8] overflow-hidden"
+    >
       <div className="w-full">
         {/* セクションヘッダー - 上品で控えめ */}
-        <div className="text-center mb-16 max-w-7xl mx-auto px-8">
-          <p className="text-sm text-[#C8102E] tracking-[0.3em] uppercase font-light mb-2">
+        <div className="text-center mb-12 sm:mb-16 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <p className="text-xs sm:text-sm md:text-base text-[#C8102E] tracking-[0.25em] sm:tracking-[0.3em] uppercase font-light mb-2 sm:mb-3">
             Case Studies
           </p>
-          <h2 className="text-xl md:text-2xl font-light text-gray-600 tracking-wide">
+          <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-gray-600 tracking-wide">
             クライアント企業実績
           </h2>
         </div>
@@ -58,10 +61,10 @@ export default function Achievement() {
               {repeatedClients.map((client, index) => (
                 <div
                   key={index}
-                  className="flex-shrink-0 px-16 py-12 flex items-center justify-center"
-                  style={{ minWidth: '320px' }}
+                  className="flex-shrink-0 px-12 sm:px-16 py-10 sm:py-12 flex items-center justify-center"
+                  style={{ minWidth: '280px', maxWidth: '320px' }}
                 >
-                  <div className="text-xl md:text-2xl font-light text-gray-500 tracking-[0.3em] opacity-60 hover:opacity-100 hover:text-gray-700 transition-all duration-500 uppercase">
+                  <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-light text-gray-500 tracking-[0.2em] sm:tracking-[0.3em] opacity-60 hover:opacity-100 hover:text-gray-700 transition-all duration-500 uppercase">
                     {client}
                   </div>
                 </div>
@@ -70,15 +73,22 @@ export default function Achievement() {
           </div>
         </div>
 
-        {/* 統計情報 - よりミニマルに */}
-        <div className="mt-32 max-w-6xl mx-auto px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 md:gap-16">
+        {/* 統計情報 - フォントサイズ最適化 */}
+        <div className="mt-24 lg:mt-32 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 lg:gap-16">
             {stats.map((stat, index) => (
               <div key={index} className="text-center group">
-                <div className="text-5xl lg:text-6xl font-extralight text-gray-800 mb-3 tracking-tight group-hover:text-[#C8102E] transition-colors duration-300">
-                  {stat.value}<span className="text-3xl">{stat.suffix}</span>
+                {/* 数値部分 */}
+                <div className="mb-3 sm:mb-4 group-hover:scale-105 transition-transform duration-300">
+                  <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight text-gray-800 tracking-tight group-hover:text-[#C8102E] transition-colors duration-300">
+                    {stat.value}
+                  </span>
+                  <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-gray-700 group-hover:text-[#C8102E] transition-colors duration-300">
+                    {stat.suffix}
+                  </span>
                 </div>
-                <div className="text-[10px] text-gray-400 tracking-[0.2em] font-light">
+                {/* ラベル部分 */}
+                <div className="text-[11px] sm:text-xs md:text-sm text-gray-500 tracking-wide font-light leading-relaxed px-2">
                   {stat.label}
                 </div>
               </div>

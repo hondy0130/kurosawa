@@ -110,13 +110,17 @@ export default function Members() {
     <section id="members" className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <p className="text-sm text-[#C8102E] tracking-[0.3em] uppercase font-light mb-2">Member</p>
+          <p className="text-sm text-[#C8102E] tracking-[0.3em] uppercase font-light mb-2">
+            Member
+          </p>
           <h2 className="text-xl md:text-2xl font-light text-gray-600 tracking-wide">メンバー</h2>
         </div>
 
-        {groups.map((group, groupIndex) => (
+        {groups.map((group) => (
           <div key={group.title} className="mb-14">
-            <h3 className="text-lg md:text-xl font-light text-[#2E2E2E] tracking-wide mb-6">{group.title}</h3>
+            <h3 className="text-lg md:text-xl font-light text-[#2E2E2E] tracking-wide mb-6">
+              {group.title}
+            </h3>
 
             <div className="space-y-8">
               {group.members.map((member, memberIndex) => {
@@ -126,11 +130,17 @@ export default function Members() {
                     key={`${group.title}-${member.nameJa}`}
                     className="grid md:grid-cols-12 gap-6 items-center"
                   >
-                    <div className={`${isEven ? 'md:col-span-7 md:order-1' : 'md:col-span-7 md:order-2'}`}>
+                    <div
+                      className={`${isEven ? 'md:col-span-7 md:order-1' : 'md:col-span-7 md:order-2'}`}
+                    >
                       <div className="bg-white border border-gray-100 rounded-xl p-6">
                         <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4 mb-3">
-                          <div className="text-base font-medium text-[#2E2E2E]">{member.nameJa}</div>
-                          <div className="text-xs text-[#6B6B6B] tracking-wide">{member.nameEn}</div>
+                          <div className="text-base font-medium text-[#2E2E2E]">
+                            {member.nameJa}
+                          </div>
+                          <div className="text-xs text-[#6B6B6B] tracking-wide">
+                            {member.nameEn}
+                          </div>
                         </div>
                         <ul className="list-disc pl-5 space-y-2 text-sm text-[#5A5A5A] leading-relaxed">
                           {member.bullets.map((b, i) => (
@@ -139,7 +149,9 @@ export default function Members() {
                         </ul>
                       </div>
                     </div>
-                    <div className={`${isEven ? 'md:col-span-5 md:order-2' : 'md:col-span-5 md:order-1'}`}>
+                    <div
+                      className={`${isEven ? 'md:col-span-5 md:order-2' : 'md:col-span-5 md:order-1'}`}
+                    >
                       <div className="aspect-[4/3] rounded-xl bg-gray-200 border border-gray-100"></div>
                     </div>
                   </div>
@@ -152,5 +164,3 @@ export default function Members() {
     </section>
   );
 }
-
-
