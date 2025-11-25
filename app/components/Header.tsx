@@ -88,27 +88,18 @@ export default function Header() {
         <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-gradient-to-br from-[#81C784]/15 to-transparent rounded-full blur-3xl"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-10 lg:px-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-10 lg:px-16 relative z-20">
         <div className="flex justify-between items-center h-24">
           {/* ロゴ */}
           <Link href="/" className="flex items-center flex-shrink-0">
-            <div className="flex items-center gap-3">
-              <Image
-                src="/kcv-logo.webp"
-                alt="Kurosawa Consulting Vietnam"
-                width={150}
-                height={40}
-                className="h-10 w-auto"
-                priority
-              />
-              <span
-                className={`text-base lg:text-lg font-light tracking-wide transition-colors duration-300 whitespace-nowrap ${
-                  isScrolled ? 'text-[#2E2E2E]' : 'text-white'
-                }`}
-              >
-                Kurosawa Consulting Vietnam
-              </span>
-            </div>
+            <Image 
+              src="/logo_header.png" 
+              alt="Kurosawa Consulting Vietnam" 
+              width={400}
+              height={80}
+              className="h-12 w-auto"
+              priority
+            />
           </Link>
 
           {/* デスクトップナビゲーション */}
@@ -283,11 +274,11 @@ export default function Header() {
 
         {/* モバイルメニュー - アニメーション付き */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ease-out ${
+          className={`lg:hidden overflow-hidden transition-all duration-300 ease-out absolute left-0 right-0 top-full ${
             isMenuOpen ? 'max-h-[800px] opacity-100' : 'max-h-0 opacity-0'
-          } ${isScrolled ? 'border-t border-gray-100 bg-white' : 'border-t border-white/10 bg-black/20 backdrop-blur-md'}`}
+          } ${isScrolled ? 'border-t border-gray-100 bg-white' : 'border-t border-white/10 bg-black/30 backdrop-blur-lg'}`}
         >
-          <div className="py-6">
+          <div className="py-6 px-10">
             <nav className="flex flex-col space-y-4">
               <Link
                 href="/"
