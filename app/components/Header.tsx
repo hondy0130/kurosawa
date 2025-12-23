@@ -42,34 +42,17 @@ export default function Header() {
     }, 200);
   };
 
-  const serviceCategories = [
+  const serviceItems = [
     {
-      title: '設立・投資サポート',
-      items: [
-        { name: 'ライセンス取得', href: '/services/license' },
-        { name: 'ビジネスパートナー紹介', href: '/services/partners' },
-        { name: 'M&Aコンサル', href: '/services/ma' },
-      ],
+      name: 'ベトナム拠点設立',
+      subtext: '現地法人/駐在員事務所/支店',
+      href: '/services/establishment',
     },
-    {
-      title: '会計・税務アドバイザリー',
-      items: [
-        { name: '企業評価（バリュエーション）', href: '/services/valuation' },
-        { name: '財務・税務DD', href: '/services/dd' },
-        { name: '顧問契約', href: '/services/retainer' },
-      ],
-    },
-    {
-      title: 'その他のサービス',
-      items: [
-        { name: '翻訳サービス', href: '/services/translation' },
-        { name: '個人情報保護対応', href: '/services/privacy' },
-        { name: '債権回収', href: '/services/debt-collection' },
-        { name: '不動産コンサル', href: '/services/real-estate' },
-        { name: '信用調査', href: '/services/credit-check' },
-        { name: '秘書代行', href: '/services/secretarial' },
-      ],
-    },
+    { name: 'M&Aアドバイザリー', href: '/services/ma' },
+    { name: '会計税務コンサルティング', href: '/services/accounting' },
+    { name: '法務及び労務相談', href: '/services/legal-labor' },
+    { name: '各種ライセンス申請', href: '/services/license' },
+    { name: 'その他業務', href: '/services/other' },
   ];
 
   return (
@@ -92,9 +75,9 @@ export default function Header() {
         <div className="flex items-center justify-between h-24">
           {/* ロゴ */}
           <Link href="/" className="flex items-center flex-shrink-0 -ml-2 lg:-ml-4">
-            <Image 
-              src="/logo.png" 
-              alt="Kurosawa Consulting Vietnam" 
+            <Image
+              src="/logo.png"
+              alt="Kurosawa Consulting Vietnam"
               width={250}
               height={75}
               className={`h-14 w-auto transition-all duration-300 ${
@@ -157,7 +140,7 @@ export default function Header() {
 
               {/* ドロップダウンメニュー - アニメーション付き */}
               <div
-                className={`absolute top-full left-0 mt-2 w-[560px] bg-white border border-gray-100 shadow-lg p-4 grid grid-cols-2 gap-4 origin-top transition-all duration-300 ease-out ${
+                className={`absolute top-full left-0 mt-2 w-[320px] bg-white border border-gray-100 shadow-lg py-2 origin-top transition-all duration-300 ease-out ${
                   isServicesOpen
                     ? 'opacity-100 scale-y-100 translate-y-0 pointer-events-auto'
                     : 'opacity-0 scale-y-95 -translate-y-2 pointer-events-none'
@@ -165,32 +148,22 @@ export default function Header() {
                 onMouseEnter={openServices}
                 onMouseLeave={scheduleCloseServices}
               >
-                {serviceCategories.map((cat, catIndex) => (
-                  <div
-                    key={cat.title}
-                    className={`transition-all duration-300 ease-out ${
+                {serviceItems.map((item, index) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className={`block px-4 py-3 text-sm font-light text-gray-600 hover:bg-gray-50 hover:text-[#84ab52] tracking-wide transition-all duration-200 ${
                       isServicesOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
                     }`}
                     style={{
-                      transitionDelay: isServicesOpen ? `${catIndex * 50}ms` : '0ms',
+                      transitionDelay: isServicesOpen ? `${index * 30}ms` : '0ms',
                     }}
                   >
-                    <div className="px-3 pb-2 text-[11px] tracking-[0.2em] text-[#84ab52] font-light">
-                      {cat.title}
-                    </div>
-                    <ul className="border-t border-gray-50">
-                      {cat.items.map((item) => (
-                        <li key={item.name}>
-                          <Link
-                            href={item.href}
-                            className="block px-3 py-2 text-sm font-light text-gray-600 hover:bg-gray-50 hover:text-[#84ab52] tracking-wide transition-colors duration-200"
-                          >
-                            {item.name}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                    <span>{item.name}</span>
+                    {item.subtext && (
+                      <span className="block text-xs text-gray-400 mt-0.5">{item.subtext}</span>
+                    )}
+                  </Link>
                 ))}
               </div>
             </div>
@@ -314,43 +287,32 @@ export default function Header() {
                   </svg>
                 </button>
                 <div
-                  className={`ml-4 space-y-4 overflow-hidden transition-all duration-300 ease-out ${
-                    isServicesOpen ? 'max-h-[600px] mt-2 opacity-100' : 'max-h-0 mt-0 opacity-0'
+                  className={`ml-4 space-y-1 overflow-hidden transition-all duration-300 ease-out ${
+                    isServicesOpen ? 'max-h-[400px] mt-2 opacity-100' : 'max-h-0 mt-0 opacity-0'
                   }`}
                 >
-                  {serviceCategories.map((cat, catIndex) => (
-                    <div
-                      key={cat.title}
-                      className={`transition-all duration-300 ease-out ${
-                        isServicesOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'
-                      }`}
+                  {serviceItems.map((item, index) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className={`block py-1.5 text-sm font-light tracking-wide transition-all duration-300 ${
+                        isScrolled
+                          ? 'text-gray-500 hover:text-[#84ab52]'
+                          : 'text-white/70 hover:text-white'
+                      } ${isServicesOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'}`}
                       style={{
-                        transitionDelay: isServicesOpen ? `${catIndex * 50}ms` : '0ms',
+                        transitionDelay: isServicesOpen ? `${index * 30}ms` : '0ms',
                       }}
                     >
-                      <div
-                        className={`text-xs tracking-[0.2em] font-light mb-2 transition-colors duration-300 ${
-                          isScrolled ? 'text-[#84ab52]' : 'text-white'
-                        }`}
-                      >
-                        {cat.title}
-                      </div>
-                      <div className="ml-3 space-y-1">
-                        {cat.items.map((item) => (
-                          <Link
-                            key={item.name}
-                            href={item.href}
-                            className={`block text-sm font-light tracking-wide transition-colors duration-300 ${
-                              isScrolled
-                                ? 'text-gray-500 hover:text-[#84ab52]'
-                                : 'text-white/70 hover:text-white'
-                            }`}
-                          >
-                            {item.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
+                      {item.name}
+                      {item.subtext && (
+                        <span
+                          className={`text-xs ml-1 ${isScrolled ? 'text-gray-400' : 'text-white/50'}`}
+                        >
+                          ({item.subtext})
+                        </span>
+                      )}
+                    </Link>
                   ))}
                 </div>
               </div>

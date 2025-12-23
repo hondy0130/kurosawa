@@ -24,126 +24,62 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* サービス（カテゴリ+個別） */}
+          {/* サービス */}
           <div>
             <h3 className="font-light text-white mb-6 text-sm tracking-widest uppercase">
               Services
             </h3>
-            <div className="space-y-6 text-sm">
-              <div>
-                <div className="font-light text-white mb-2 tracking-wide">設立・投資サポート</div>
-                <ul className="space-y-1">
-                  <li>
-                    <a
-                      href="/services/license"
-                      className="text-gray-400 hover:text-white transition-colors font-light tracking-wide"
-                    >
-                      ライセンス取得
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/services/partners"
-                      className="text-gray-400 hover:text-white transition-colors font-light tracking-wide"
-                    >
-                      ビジネスパートナー紹介
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/services/ma"
-                      className="text-gray-400 hover:text-white transition-colors font-light tracking-wide"
-                    >
-                      M&Aコンサル
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <div className="font-light text-white mb-2 tracking-wide">
-                  会計・税務アドバイザリー
-                </div>
-                <ul className="space-y-1">
-                  <li>
-                    <a
-                      href="/services/valuation"
-                      className="text-gray-400 hover:text-white transition-colors font-light tracking-wide"
-                    >
-                      企業評価（バリュエーション）
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/services/dd"
-                      className="text-gray-400 hover:text-white transition-colors font-light tracking-wide"
-                    >
-                      財務・税務DD
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/services/retainer"
-                      className="text-gray-400 hover:text-white transition-colors font-light tracking-wide"
-                    >
-                      顧問契約
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <div className="font-light text-white mb-2 tracking-wide">その他のサービス</div>
-                <ul className="space-y-1">
-                  <li>
-                    <a
-                      href="/services/translation"
-                      className="text-gray-400 hover:text-white transition-colors font-light tracking-wide"
-                    >
-                      翻訳サービス
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/services/privacy"
-                      className="text-gray-400 hover:text-white transition-colors font-light tracking-wide"
-                    >
-                      個人情報保護対応
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/services/debt-collection"
-                      className="text-gray-400 hover:text-white transition-colors font-light tracking-wide"
-                    >
-                      債権回収
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/services/real-estate"
-                      className="text-gray-400 hover:text-white transition-colors font-light tracking-wide"
-                    >
-                      不動産コンサル
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/services/credit-check"
-                      className="text-gray-400 hover:text-white transition-colors font-light tracking-wide"
-                    >
-                      信用調査
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/services/secretarial"
-                      className="text-gray-400 hover:text-white transition-colors font-light tracking-wide"
-                    >
-                      秘書代行
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <ul className="space-y-3 text-sm">
+              <li>
+                <a
+                  href="/services/establishment"
+                  className="text-gray-400 hover:text-white transition-colors font-light tracking-wide"
+                >
+                  ベトナム拠点設立
+                  <span className="block text-xs text-gray-500">現地法人/駐在員事務所/支店</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services/ma"
+                  className="text-gray-400 hover:text-white transition-colors font-light tracking-wide"
+                >
+                  M&Aアドバイザリー
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services/accounting"
+                  className="text-gray-400 hover:text-white transition-colors font-light tracking-wide"
+                >
+                  会計税務コンサルティング
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services/legal-labor"
+                  className="text-gray-400 hover:text-white transition-colors font-light tracking-wide"
+                >
+                  法務及び労務相談
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services/license"
+                  className="text-gray-400 hover:text-white transition-colors font-light tracking-wide"
+                >
+                  各種ライセンス申請
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/services/other"
+                  className="text-gray-400 hover:text-white transition-colors font-light tracking-wide"
+                >
+                  その他業務
+                </a>
+              </li>
+            </ul>
           </div>
 
           {/* 企業情報 */}
