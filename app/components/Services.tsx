@@ -50,7 +50,6 @@ export default function Services() {
       accentStrong: 'rgba(132,171,82,0.42)',
       accentSoft: 'rgba(160,200,112,0.22)',
       href: '/services/ma',
-      specialPageHref: '/services/ma',
     },
     {
       title: '会計税務コンサルティング',
