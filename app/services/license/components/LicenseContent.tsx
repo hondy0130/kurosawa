@@ -6,6 +6,7 @@ const navItems = [
   { id: 'overview', label: 'サービス概要' },
   { id: 'flow', label: '申請の流れ' },
   { id: 'support', label: 'サポート内容' },
+  { id: 'budget', label: '参考予算' },
   { id: 'faq', label: 'よくある質問' },
 ];
 
@@ -307,6 +308,106 @@ export default function LicenseContent() {
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* 参考予算 */}
+            <div id="budget" className="scroll-mt-32">
+              <h2 className="text-2xl md:text-3xl font-light text-gray-800 mb-6 pb-4 border-b border-gray-200">
+                参考予算
+              </h2>
+              <p className="text-gray-600 mb-8">
+                各種ライセンス申請に関する参考予算です。実際の費用は申請内容により異なります。
+              </p>
+
+              <div className="space-y-6">
+                <div className="bg-gray-50 rounded-xl p-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                    <h3 className="text-lg font-medium text-gray-800">投資登録証明書（IRC）変更</h3>
+                    <span className="inline-flex items-center px-4 py-2 bg-[#84ab52] text-white text-sm font-medium rounded-lg">
+                      USD 500〜1,500
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">IRCの各種変更手続き</p>
+                  <ul className="grid sm:grid-cols-2 gap-2">
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      資本金変更
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      事業範囲追加
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      住所変更
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      その他変更
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-gray-50 rounded-xl p-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                    <h3 className="text-lg font-medium text-gray-800">労働許可証（ワークパーミット）</h3>
+                    <span className="inline-flex items-center px-4 py-2 bg-[#84ab52] text-white text-sm font-medium rounded-lg">
+                      USD 400〜800/人
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">外国人従業員の労働許可証取得</p>
+                  <ul className="grid sm:grid-cols-2 gap-2">
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      新規申請
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      更新申請
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      書類準備サポート
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      ビザ手続き
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-gray-50 rounded-xl p-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                    <h3 className="text-lg font-medium text-gray-800">業種別ライセンス</h3>
+                    <span className="inline-flex items-center px-4 py-2 bg-[#84ab52] text-white text-sm font-medium rounded-lg">
+                      USD 1,000〜5,000
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">業種に応じた各種許認可の取得</p>
+                  <ul className="grid sm:grid-cols-2 gap-2">
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      製造業ライセンス
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      小売業ライセンス
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      輸出入ライセンス
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      その他業種別許可
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <p className="text-sm text-gray-500 mt-6">
+                ※上記は参考価格です。申請内容により変動します。詳細なお見積りはお問い合わせください。
+              </p>
             </div>
 
             <div id="faq" className="scroll-mt-32">

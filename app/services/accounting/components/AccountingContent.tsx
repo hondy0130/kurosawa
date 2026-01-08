@@ -11,6 +11,7 @@ const navItems: NavItem[] = [
   { id: 'overview', label: 'サービス概要' },
   { id: 'flow', label: '業務の流れ' },
   { id: 'support', label: 'サポート内容' },
+  { id: 'budget', label: '参考予算' },
   { id: 'faq', label: 'よくある質問' },
 ];
 
@@ -332,6 +333,106 @@ export default function AccountingContent() {
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* 参考予算 */}
+            <div id="budget" className="scroll-mt-32">
+              <h2 className="text-2xl md:text-3xl font-light text-gray-800 mb-6 pb-4 border-b border-gray-200">
+                参考予算
+              </h2>
+              <p className="text-gray-600 mb-8">
+                会計税務コンサルティングに関する参考予算です。実際の費用は取引量や業務内容により異なります。
+              </p>
+
+              <div className="space-y-6">
+                <div className="bg-gray-50 rounded-xl p-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                    <h3 className="text-lg font-medium text-gray-800">記帳代行（月額）</h3>
+                    <span className="inline-flex items-center px-4 py-2 bg-[#84ab52] text-white text-sm font-medium rounded-lg">
+                      USD 300〜800/月
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">月次の記帳業務を代行</p>
+                  <ul className="grid sm:grid-cols-2 gap-2">
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      仕訳入力・記帳
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      証憑書類整理
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      銀行照合
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      月次試算表作成
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-gray-50 rounded-xl p-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                    <h3 className="text-lg font-medium text-gray-800">決算・税務申告（年額）</h3>
+                    <span className="inline-flex items-center px-4 py-2 bg-[#84ab52] text-white text-sm font-medium rounded-lg">
+                      USD 1,500〜3,000/年
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">年次決算処理と税務申告を代行</p>
+                  <ul className="grid sm:grid-cols-2 gap-2">
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      年次決算処理
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      法人税申告
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      財務諸表作成
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      監査対応
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-gray-50 rounded-xl p-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                    <h3 className="text-lg font-medium text-gray-800">会計顧問（月額）</h3>
+                    <span className="inline-flex items-center px-4 py-2 bg-[#84ab52] text-white text-sm font-medium rounded-lg">
+                      USD 500〜1,500/月
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">記帳代行＋月次決算＋税務相談を含む包括サービス</p>
+                  <ul className="grid sm:grid-cols-2 gap-2">
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      記帳代行
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      月次決算・レポート
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      税務相談
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      日本本社向けレポート
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <p className="text-sm text-gray-500 mt-6">
+                ※上記は参考価格です。取引量や業務内容により変動します。詳細なお見積りはお問い合わせください。
+              </p>
             </div>
 
             <div id="faq" className="scroll-mt-32">

@@ -11,6 +11,7 @@ const navItems: NavItem[] = [
   { id: 'overview', label: 'サービス概要' },
   { id: 'flow', label: '設立の流れ' },
   { id: 'support', label: 'サポート内容' },
+  { id: 'budget', label: '参考予算' },
   { id: 'faq', label: 'よくある質問' },
 ];
 
@@ -393,6 +394,106 @@ export default function EstablishmentContent() {
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* 参考予算 */}
+            <div id="budget" className="scroll-mt-32">
+              <h2 className="text-2xl md:text-3xl font-light text-gray-800 mb-6 pb-4 border-b border-gray-200">
+                参考予算
+              </h2>
+              <p className="text-gray-600 mb-8">
+                ベトナム拠点設立に関する参考予算です。実際の費用は事業内容や規模により異なります。
+              </p>
+
+              <div className="space-y-6">
+                <div className="bg-gray-50 rounded-xl p-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                    <h3 className="text-lg font-medium text-gray-800">現地法人設立</h3>
+                    <span className="inline-flex items-center px-4 py-2 bg-[#84ab52] text-white text-sm font-medium rounded-lg">
+                      USD 3,000〜5,000
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">投資登録証明書・事業登録証明書の取得、定款作成等を含む</p>
+                  <ul className="grid sm:grid-cols-2 gap-2">
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      IRC/ERC取得手続き
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      定款・社内規程作成
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      銀行口座開設支援
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      各種届出代行
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-gray-50 rounded-xl p-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                    <h3 className="text-lg font-medium text-gray-800">駐在員事務所設立</h3>
+                    <span className="inline-flex items-center px-4 py-2 bg-[#84ab52] text-white text-sm font-medium rounded-lg">
+                      USD 2,000〜3,000
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">駐在員事務所設立許可の取得手続きを含む</p>
+                  <ul className="grid sm:grid-cols-2 gap-2">
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      設立許可申請
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      必要書類の準備
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      銀行口座開設支援
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      各種届出代行
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-gray-50 rounded-xl p-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                    <h3 className="text-lg font-medium text-gray-800">支店設立</h3>
+                    <span className="inline-flex items-center px-4 py-2 bg-[#84ab52] text-white text-sm font-medium rounded-lg">
+                      USD 2,500〜4,000
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">支店設立許可の取得手続きを含む</p>
+                  <ul className="grid sm:grid-cols-2 gap-2">
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      支店設立許可申請
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      必要書類の準備
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      銀行口座開設支援
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      各種届出代行
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <p className="text-sm text-gray-500 mt-6">
+                ※上記は参考価格です。詳細なお見積りはお問い合わせください。
+              </p>
             </div>
 
             {/* よくある質問 */}

@@ -6,6 +6,7 @@ const navItems = [
   { id: 'overview', label: 'サービス概要' },
   { id: 'flow', label: '対応の流れ' },
   { id: 'support', label: 'サポート内容' },
+  { id: 'budget', label: '参考予算' },
   { id: 'faq', label: 'よくある質問' },
 ];
 
@@ -307,6 +308,106 @@ export default function LegalLaborContent() {
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* 参考予算 */}
+            <div id="budget" className="scroll-mt-32">
+              <h2 className="text-2xl md:text-3xl font-light text-gray-800 mb-6 pb-4 border-b border-gray-200">
+                参考予算
+              </h2>
+              <p className="text-gray-600 mb-8">
+                法務・労務相談に関する参考予算です。実際の費用は案件の内容や複雑さにより異なります。
+              </p>
+
+              <div className="space-y-6">
+                <div className="bg-gray-50 rounded-xl p-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                    <h3 className="text-lg font-medium text-gray-800">契約書作成・レビュー</h3>
+                    <span className="inline-flex items-center px-4 py-2 bg-[#84ab52] text-white text-sm font-medium rounded-lg">
+                      USD 300〜1,000/件
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">各種契約書の作成・レビューを行います</p>
+                  <ul className="grid sm:grid-cols-2 gap-2">
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      売買契約書
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      業務委託契約書
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      雇用契約書
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      秘密保持契約書
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-gray-50 rounded-xl p-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                    <h3 className="text-lg font-medium text-gray-800">就業規則作成・改訂</h3>
+                    <span className="inline-flex items-center px-4 py-2 bg-[#84ab52] text-white text-sm font-medium rounded-lg">
+                      USD 1,500〜3,000
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">就業規則・社内規程の作成・改訂</p>
+                  <ul className="grid sm:grid-cols-2 gap-2">
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      就業規則作成
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      給与規程
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      評価制度設計
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      各種社内規程
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-gray-50 rounded-xl p-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                    <h3 className="text-lg font-medium text-gray-800">法務・労務顧問（月額）</h3>
+                    <span className="inline-flex items-center px-4 py-2 bg-[#84ab52] text-white text-sm font-medium rounded-lg">
+                      USD 500〜1,500/月
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">継続的な法務・労務相談サービス</p>
+                  <ul className="grid sm:grid-cols-2 gap-2">
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      法務相談
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      労務相談
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      契約書レビュー（月2件まで）
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      トラブル対応支援
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <p className="text-sm text-gray-500 mt-6">
+                ※上記は参考価格です。案件の内容により変動します。詳細なお見積りはお問い合わせください。
+              </p>
             </div>
 
             <div id="faq" className="scroll-mt-32">

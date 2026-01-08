@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 const navItems = [
   { id: 'overview', label: 'サービス概要' },
   { id: 'support', label: 'サポート内容' },
+  { id: 'budget', label: '参考予算' },
   { id: 'faq', label: 'よくある質問' },
 ];
 
@@ -255,6 +256,106 @@ export default function OtherContent() {
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* 参考予算 */}
+            <div id="budget" className="scroll-mt-32">
+              <h2 className="text-2xl md:text-3xl font-light text-gray-800 mb-6 pb-4 border-b border-gray-200">
+                参考予算
+              </h2>
+              <p className="text-gray-600 mb-8">
+                その他サービスに関する参考予算です。実際の費用はサービス内容により異なります。
+              </p>
+
+              <div className="space-y-6">
+                <div className="bg-gray-50 rounded-xl p-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                    <h3 className="text-lg font-medium text-gray-800">翻訳サービス</h3>
+                    <span className="inline-flex items-center px-4 py-2 bg-[#84ab52] text-white text-sm font-medium rounded-lg">
+                      USD 15〜25/ページ
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">各種ビジネス文書の翻訳</p>
+                  <ul className="grid sm:grid-cols-2 gap-2">
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      契約書・法務文書
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      技術文書
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      マーケティング資料
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      一般ビジネス文書
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-gray-50 rounded-xl p-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                    <h3 className="text-lg font-medium text-gray-800">通訳サービス</h3>
+                    <span className="inline-flex items-center px-4 py-2 bg-[#84ab52] text-white text-sm font-medium rounded-lg">
+                      USD 150〜300/半日
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">会議・商談の通訳サービス</p>
+                  <ul className="grid sm:grid-cols-2 gap-2">
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      商談通訳
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      会議通訳
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      工場視察同行
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      セミナー通訳
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="bg-gray-50 rounded-xl p-6">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                    <h3 className="text-lg font-medium text-gray-800">市場調査・信用調査</h3>
+                    <span className="inline-flex items-center px-4 py-2 bg-[#84ab52] text-white text-sm font-medium rounded-lg">
+                      USD 500〜3,000
+                    </span>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-3">ベトナム市場・企業の調査サービス</p>
+                  <ul className="grid sm:grid-cols-2 gap-2">
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      市場調査
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      競合分析
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      企業信用調査
+                    </li>
+                    <li className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#84ab52]"></span>
+                      業界レポート
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <p className="text-sm text-gray-500 mt-6">
+                ※上記は参考価格です。サービス内容により変動します。詳細なお見積りはお問い合わせください。
+              </p>
             </div>
 
             <div id="faq" className="scroll-mt-32">

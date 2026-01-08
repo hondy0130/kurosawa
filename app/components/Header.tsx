@@ -183,14 +183,6 @@ export default function Header() {
               料金
             </Link>
             <Link
-              href="/faq"
-              className={`text-[13px] xl:text-[14px] 2xl:text-[15px] font-light tracking-wide transition-colors duration-300 whitespace-nowrap px-1.5 py-2 ${
-                isScrolled ? 'text-gray-600 hover:text-[#84ab52]' : 'text-white/90 hover:text-white'
-              }`}
-            >
-              FAQ
-            </Link>
-            <Link
               href="/#news"
               className={`text-[13px] xl:text-[14px] 2xl:text-[15px] font-light tracking-wide transition-colors duration-300 whitespace-nowrap px-1.5 py-2 ${
                 isScrolled ? 'text-gray-600 hover:text-[#84ab52]' : 'text-white/90 hover:text-white'
@@ -340,16 +332,6 @@ export default function Header() {
                 }`}
               >
                 料金プラン
-              </Link>
-              <Link
-                href="/faq"
-                className={`text-sm font-light tracking-wide transition-colors duration-300 ${
-                  isScrolled
-                    ? 'text-gray-600 hover:text-[#84ab52]'
-                    : 'text-white/90 hover:text-white'
-                }`}
-              >
-                よくある質問
               </Link>
               <Link
                 href="/#news"
